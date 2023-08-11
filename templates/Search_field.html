@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Search Field</title>
+	<link rel="stylesheet" type="text/css" href="/static/styles/search_field.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="/static/styles/search_field.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+
+<body>
+	<div id="menu-img">
+		<div class="menu" id="menu">
+			<div id="menu-icon-div">
+				<button id="menu-button" style="background-color: #1f2029; border: none" onclick="showMenu()">
+					<div class="icon-container">
+						<img class="" id="menu-icon" src="/static/IMG/stability-sdk/menu3.png"/>
+						<img class="" id="menu-icon" src="/static/IMG/stability-sdk/menu.png"/> 
+					</div>
+				</button> 
+			</div>
+			<div id="menu-items">
+				<ul id="FeaturesList">
+					<li>
+						<div id="list-element">
+							<a href="">Text-To-Image</a>
+						</div>
+					</li>
+					<li>
+						<div id="list-element">
+							<a href="">Image-To-Image</a>
+						</div>
+					</li>
+					<li>
+						<div id="list-element">
+							<a href="">Image Upscaling</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="gen-img" id="gen-img">
+			<!-- <iframe scrolling="no" src="Image_Gen.html" width="100%" height="100%"></iframe> -->
+			<div style="padding: 10px;">
+				{% for i in image %}
+					<img style="height: 250px; width: 250px;" src="{{ i }}" alt="Generated Image">
+				{% endfor %}
+			</div>
+		</div>
+		<br>
+	</div>
+	<form id="search" method="post">
+		<input type="search" name="prompt" id="prompt" required>
+		<Button type="submit" class="fa fa-search" id="search-btn"></Button>
+	</form>
+	<!-- <div id="generated-image">
+		<label for="Gen" id="gen">Generated Images</label>
+		{% for i in image %}
+			<img src="{{ i }}" alt="Generated Image">
+		{% endfor %}
+	</div> -->
+</body>
+</html>
